@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookActivity">
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="9:00 - 9:30"
+            android:id="@+id/b1"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t1"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="9:30 - 10:00"
+            android:id="@+id/b2"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t2"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="10:00 - 10:30"
+            android:id="@+id/b3"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t3"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="10:30 - 11:00"
+            android:id="@+id/b4"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t4"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="11:00 - 11:30"
+            android:id="@+id/b5"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t5"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="11:30 - 12:00"
+            android:id="@+id/b6"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t6"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="12:00 - 12:30"
+            android:id="@+id/b7"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t7"/>
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="12:30 - 1:00"
+            android:id="@+id/b8"
+            android:layout_column="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 pending"
+            android:id="@+id/t8"/>
+    </TableRow>
+</TableLayout>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel Request"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
