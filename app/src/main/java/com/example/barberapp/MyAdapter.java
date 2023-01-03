@@ -76,8 +76,8 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Users,MyAdapter.MyViewHol
                 builder.setPositiveButton("Yes", (dialogInterface, i) -> {
                     String s = time_slot+"";
                     // Strings are immutable that's why new string is created
-                    String n = s.substring(52) + "confirm";
-                    FirebaseDatabase.getInstance().getReference().child(n).push().child("confirmed").setValue(model.getName());
+                    String n = s.substring(52);
+                    FirebaseDatabase.getInstance().getReference().child(n).child(model.getUid()).child("status").setValue("Confirmed");
                 });
 
                 builder.setNegativeButton("Cancel", (dialogInterface, i) -> {

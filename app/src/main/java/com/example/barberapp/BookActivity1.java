@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BookActivity extends AppCompatActivity implements
+public class BookActivity1 extends AppCompatActivity implements
         View.OnClickListener{
     private List<TextView> tvs;
     private static final int[] BUTTON_IDS = {
@@ -49,13 +49,13 @@ public class BookActivity extends AppCompatActivity implements
     ValueEventListener vEL1,vEL2,vEL3,vEL4,vEL5,vEL6,vEL7,vEL8;
     String name;
     String phone;
-    String mail;
+    String uid;
     Map<String,Object> map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book);
+        setContentView(R.layout.activity_book1);
 
         rootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -69,7 +69,7 @@ public class BookActivity extends AppCompatActivity implements
         n7 = rootRef.child("slot1200_1230");
         n8 = rootRef.child("slot1230_0100");
         cancel = findViewById(R.id.cancel);
-        mail = getIntent().getStringExtra("mail");
+        uid = getIntent().getStringExtra("mail");
         Button button1= findViewById(R.id.b1);
 
         List<Button> buttons = new ArrayList<>();
@@ -88,7 +88,7 @@ public class BookActivity extends AppCompatActivity implements
         cancel.setEnabled(false);
         bDisable();
 
-        pU.orderByChild("mail").equalTo(mail).addListenerForSingleValueEvent(new ValueEventListener() {
+        pU.orderByChild("mail").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.getValue() == null){
@@ -209,8 +209,8 @@ public class BookActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         map = new HashMap<>();
-        mail = getIntent().getStringExtra("mail");
-        rootRef.child("Users").orderByChild("mail").equalTo(mail).addChildEventListener(new ChildEventListener() {
+        uid = getIntent().getStringExtra("mail");
+        rootRef.child("Users").orderByChild("mail").equalTo(uid).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 if(snapshot.exists()){
@@ -219,7 +219,7 @@ public class BookActivity extends AppCompatActivity implements
                     name = user.getName();
                     phone = user.getPhone();
                     map.put("name", name);
-                    map.put("mail", mail);
+                    map.put("mail", uid);
                     map.put("phone", phone);
                 }
             }
@@ -244,7 +244,7 @@ public class BookActivity extends AppCompatActivity implements
 
             }
         });
-        pU.push().child("mail").setValue(mail);
+        pU.push().child("mail").setValue(uid);
         switch (view.getId()){
             case R.id.b1:
                 n1.addListenerForSingleValueEvent(vEL1);

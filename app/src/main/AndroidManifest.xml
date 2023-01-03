@@ -14,11 +14,11 @@
         android:theme="@style/Theme.BarberApp"
         tools:targetApi="31">
         <activity
+            android:name=".BookActivity"
+            android:exported="false" />
+        <activity
             android:name=".RequestActivity"
-            android:exported="true">
-
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".RegisterActivity"
             android:exported="true">
@@ -27,17 +27,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".BookActivity"
-            android:exported="false" />
-        <activity
             android:name=".DashboardActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,16 +1,12 @@
 package com.example.barberapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Objects;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DashboardActivity extends AppCompatActivity {
     Button book,contact,btnLogout;
@@ -27,26 +23,18 @@ public class DashboardActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        book.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String user = Objects.requireNonNull(auth.getCurrentUser()).getEmail();
-                String name = Objects.requireNonNull(auth.getCurrentUser()).getDisplayName();
-                String uid = auth.getUid();
-                Intent intent = new Intent(DashboardActivity.this, BookActivity.class);
-                intent.putExtra("mail",uid);
-                startActivity(intent);
-            }
+        book.setOnClickListener(view -> {
+            String uid = auth.getUid();
+            Intent intent = new Intent(DashboardActivity.this, BookActivity.class);
+            intent.putExtra("uid",uid);
+            startActivity(intent);
         });
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                auth.signOut();
-                Intent intent = new Intent(DashboardActivity.this, RegisterActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnLogout.setOnClickListener(view -> {
+            auth.signOut();
+            Intent intent = new Intent(DashboardActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
